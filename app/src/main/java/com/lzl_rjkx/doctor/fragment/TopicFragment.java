@@ -152,6 +152,7 @@ public class TopicFragment extends Fragment {
             }
         });
 
+
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

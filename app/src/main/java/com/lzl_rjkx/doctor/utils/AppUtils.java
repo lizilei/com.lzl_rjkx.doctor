@@ -3,11 +3,14 @@ package com.lzl_rjkx.doctor.utils;
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -121,6 +124,49 @@ public class AppUtils {
             }
         }
         return false;
+    }
+
+    /**
+     * 判断一个应用是否在运行
+     */
+
+    public static boolean isLauncherRunnig(Context context) {
+        boolean result = false;
+        List<String> names = getAllTheLauncher(context);
+        ActivityManager mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> appList = mActivityManager.getRunningAppProcesses();
+        for (ActivityManager.RunningAppProcessInfo running : appList) {
+            if (running.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
+                for (int i = 0; i < names.size(); i++) {
+                    if (names.get(i).equals(running.processName)) {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * getAllTheLauncher
+     *
+     * @return
+     */
+    private static List<String> getAllTheLauncher(Context context) {
+        List<String> names = null;
+        PackageManager pkgMgt = context.getPackageManager();
+        Intent it = new Intent(Intent.ACTION_MAIN);
+        it.addCategory(Intent.CATEGORY_HOME);
+        List<ResolveInfo> ra = pkgMgt.queryIntentActivities(it, 0);
+        if (ra.size() != 0) {
+            names = new ArrayList<>();
+        }
+        for (int i = 0; i < ra.size(); i++) {
+            String packageName = ra.get(i).activityInfo.packageName;
+            names.add(packageName);
+        }
+        return names;
     }
 
     /**

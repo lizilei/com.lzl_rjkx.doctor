@@ -52,8 +52,6 @@ public class PushDemoReceiver extends BroadcastReceiver {
                 boolean result = PushManager.getInstance().sendFeedbackMessage(context, taskid, messageid, 90001);
                 System.out.println("第三方回执接口调用" + (result ? "成功" : "失败"));
 
-                //MyAppTokenRequest.requestData();
-
                 if (payload != null) {
                     String data = new String(payload);
 
@@ -62,7 +60,11 @@ public class PushDemoReceiver extends BroadcastReceiver {
                     payloadData.append(data);
                     payloadData.append("\n");
 
-                    judgeWithMsgType(context, payloadData.toString(), false);
+                    if (AppUtils.isLauncherRunnig(context)) {
+                        judgeWithMsgType(context, payloadData.toString(), true);
+                    } else {
+                        judgeWithMsgType(context, payloadData.toString(), false);
+                    }
                 }
                 break;
 
@@ -72,9 +74,6 @@ public class PushDemoReceiver extends BroadcastReceiver {
                 String cid = bundle.getString("clientid");
                 PreferenceUtils.setPrefString(context, "clientId", cid);
                 MyApp.getInstance().setCid(cid);
-//                if (GetuiSdkDemoActivity.tView != null) {
-//                    GetuiSdkDemoActivity.tView.setText(cid);
-//                }
                 break;
 
             case PushConsts.THIRDPART_FEEDBACK:
@@ -96,7 +95,7 @@ public class PushDemoReceiver extends BroadcastReceiver {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public void judgeWithMsgType(Context context, String json, boolean isBackground) {
+    public void judgeWithMsgType(Context context, String json, boolean isRunning) {
         try {
             JSONObject o = new JSONObject(json);
             int msgtype = o.getInt("msgtype");
@@ -118,7 +117,7 @@ public class PushDemoReceiver extends BroadcastReceiver {
                     break;
                 case 1:
                     LogUtil.i("医生成功预约，点击消息直接进入我的预约界面");
-                    if (isBackground) {
+                    if (isRunning) {
                         intent = new Intent("com.push.rjkx");
                         intent.putExtra("flag", Flag.ORDER);
                         pendingIntent = PendingIntent.getBroadcast(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -130,7 +129,7 @@ public class PushDemoReceiver extends BroadcastReceiver {
                     break;
                 case 2:
                     LogUtil.i("圈子新话题,内容中直接是圈子的msgId");
-                    if (isBackground) {
+                    if (isRunning) {
                         intent = new Intent("com.push.rjkx");
                         intent.putExtra("flag", Flag.NEWTOPIC);
                         pendingIntent = PendingIntent.getBroadcast(context, 2, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -143,7 +142,7 @@ public class PushDemoReceiver extends BroadcastReceiver {
                     break;
                 case 3:
                     LogUtil.i("圈子新文章,内容中直接是圈子的msgId");
-                    if (isBackground) {
+                    if (isRunning) {
                         intent = new Intent("com.push.rjkx");
                         intent.putExtra("flag", Flag.NEWARTICLE);
                         pendingIntent = PendingIntent.getBroadcast(context, 3, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -156,7 +155,7 @@ public class PushDemoReceiver extends BroadcastReceiver {
                     break;
                 case 4:
                     LogUtil.i("圈子新视频,内容中直接是圈子的msgId");
-                    if (isBackground) {
+                    if (isRunning) {
                         intent = new Intent("com.push.rjkx");
                         intent.putExtra("flag", Flag.NEWVIDEO);
                         pendingIntent = PendingIntent.getBroadcast(context, 4, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -169,7 +168,7 @@ public class PushDemoReceiver extends BroadcastReceiver {
                     break;
                 case 5:
                     LogUtil.i("圈子新学术,内容中直接是圈子的msgId");
-                    if (isBackground) {
+                    if (isRunning) {
                         intent = new Intent("com.push.rjkx");
                         intent.putExtra("flag", Flag.NEWACD);
                         pendingIntent = PendingIntent.getBroadcast(context, 5, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -182,7 +181,7 @@ public class PushDemoReceiver extends BroadcastReceiver {
                     break;
                 case 6:
                     LogUtil.i("圈子新回复，内容中直接是新回复消息圈子的msgId");
-                    if (isBackground) {
+                    if (isRunning) {
                         intent = new Intent("com.push.rjkx");
                         intent.putExtra("flag", Flag.NEWREPLY);
                         pendingIntent = PendingIntent.getBroadcast(context, 6, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -195,7 +194,7 @@ public class PushDemoReceiver extends BroadcastReceiver {
                     break;
                 case 99:
                     LogUtil.i("修改头像,内容中直接是新头像的地址");
-                    if (isBackground) {
+                    if (isRunning) {
                         intent = new Intent("com.push.rjkx");
                         intent.putExtra("flag", Flag.CHANGE_PHOTO);
                         pendingIntent = PendingIntent.getBroadcast(context, 99, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -214,6 +213,7 @@ public class PushDemoReceiver extends BroadcastReceiver {
                     .setTicker("TickerText:" + "您有新消息啦，请注意查收！")
                     .setContentTitle(alertTitle)
                     .setContentText("点击可立即查看")
+                    .setNumber(1)
                     .setContentIntent(pendingIntent)
                     .getNotification();
             notification.flags = Notification.FLAG_AUTO_CANCEL;

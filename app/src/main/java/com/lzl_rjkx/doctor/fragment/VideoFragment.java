@@ -133,9 +133,10 @@ public class VideoFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), VideoDetilsActicity.class);
                 intent.putExtra("msgId", vList.get(position).getMsgId());
-                if (AppUtils.isFastDoubleClick()){
+                intent.putExtra("title", vList.get(position).getMsgTitle());
+                if (AppUtils.isFastDoubleClick()) {
                     return;
-                }else {
+                } else {
                     startActivity(intent);
                 }
             }

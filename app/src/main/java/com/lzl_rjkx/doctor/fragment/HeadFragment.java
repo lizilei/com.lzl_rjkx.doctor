@@ -200,6 +200,7 @@ public class HeadFragment extends Fragment implements ViewPager.OnPageChangeList
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), VideoDetilsActicity.class);
                 intent.putExtra("msgId", hotVideo.get(position).getMsgId());
+                intent.putExtra("title", hotVideo.get(position).getMsgTitle());
                 if (AppUtils.isFastDoubleClick()) {
                     return;
                 } else {

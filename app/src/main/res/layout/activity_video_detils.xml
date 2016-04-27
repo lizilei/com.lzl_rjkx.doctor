@@ -4,6 +4,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:onClick="option"
+            android:paddingLeft="@dimen/category_padding"
+            android:src="@mipmap/ic_back" />
+
+        <TextView
+            android:id="@+id/top_title"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/top_textSize" />
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,35 +40,10 @@
             android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/top_height"
-                android:background="@color/colorWhite">
-
-                <ImageView
-                    android:id="@+id/iv_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:onClick="option"
-                    android:paddingLeft="@dimen/category_padding"
-                    android:src="@mipmap/ic_back" />
-
-                <TextView
-                    android:id="@+id/top_title"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/top_textSize" />
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:id="@+id/rl_video"
-                android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="200dp"
+                android:visibility="gone">
 
                 <VideoView
                     android:id="@+id/vv_play"
@@ -83,8 +83,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:onClick="option"
-                    android:visibility="gone"
-                    android:paddingRight="@dimen/schedule_popupWindow">
+                    android:paddingRight="@dimen/schedule_popupWindow"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -105,8 +105,8 @@
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@id/ll_comment"
                     android:onClick="option"
-                    android:visibility="gone"
-                    android:paddingRight="@dimen/schedule_popupWindow">
+                    android:paddingRight="@dimen/schedule_popupWindow"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/iv_collect"
@@ -128,9 +128,9 @@
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@id/ll_collect"
                     android:onClick="option"
-                    android:visibility="gone"
                     android:orientation="horizontal"
-                    android:paddingRight="@dimen/schedule_popupWindow">
+                    android:paddingRight="@dimen/schedule_popupWindow"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/tv_one"
@@ -163,17 +163,44 @@
                 android:id="@+id/lv_comment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/schedule_popupWindow" />
+                android:layout_marginTop="@dimen/schedule_popupWindow"
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>
 
     <RelativeLayout
+        android:id="@+id/rl_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:onClick="option">
+
+        <TextView
+            android:id="@+id/tv_failed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="加载失败！"
+            android:textSize="@dimen/common_textSize" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_failed"
+            android:gravity="center"
+            android:text="点击屏幕  重新加载"
+            android:textSize="@dimen/common_textSize" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
         android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/et_comment"
