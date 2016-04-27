@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/schedule_popupWindow"
+        android:paddingRight="@dimen/schedule_popupWindow"
+        android:paddingTop="@dimen/mood_padding">
+
+        <ImageView
+            android:id="@+id/article_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/article_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/article_icon"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/textSize_medial" />
+
+        <TextView
+            android:id="@+id/article_pubTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/textSize_medial" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/schedule_popupWindow"
+        android:paddingLeft="@dimen/schedule_popupWindow"
+        android:paddingRight="@dimen/mood_padding">
+
+        <TextView
+            android:id="@+id/article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/schedule_popupWindow"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/common_textSize" />
+
+        <TextView
+            android:id="@+id/article_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/article_title"
+            android:textSize="@dimen/textSize_medial" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/article_del"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_gravity="end"
+        android:paddingRight="@dimen/schedule_popupWindow"
+        android:src="@mipmap/article_del"
+        android:visibility="gone" />
+</LinearLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_mood_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/schedule_popupWindow"
+            android:text="取消"
+            android:textSize="@dimen/common_textSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="写说说"
+            android:textSize="@dimen/common_textSize" />
+
+        <TextView
+            android:id="@+id/tv_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/schedule_popupWindow"
+            android:text="发送"
+            android:textColor="@color/top_bg"
+            android:textSize="@dimen/common_textSize" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl"
+        android:layout_margin="@dimen/mood_padding"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标题："
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/common_textSize" />
+
+        <EditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl"
+            android:layout_marginLeft="@dimen/mood_padding"
+            android:layout_marginRight="@dimen/mood_padding"
+            android:background="@null"
+            android:gravity="start"
+            android:hint="请输入标题"
+            android:singleLine="true"
+            android:textSize="@dimen/common_textSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_top"
+        android:layout_margin="@dimen/mood_padding"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正文："
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/common_textSize" />
+
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/rl"
+            android:layout_marginLeft="@dimen/mood_padding"
+            android:layout_marginRight="@dimen/mood_padding"
+            android:background="@null"
+            android:gravity="start"
+            android:hint="请输入标题"
+            android:textSize="@dimen/common_textSize" />
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gridView_mood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_content"
+        android:layout_marginLeft="@dimen/mood_padding"
+        android:layout_marginRight="@dimen/mood_padding"
+        android:layout_marginTop="@dimen/common_dimen"
+        android:horizontalSpacing="@dimen/mood_padding"
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:verticalSpacing="@dimen/mood_padding" />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gridView_mood"
+        android:padding="@dimen/mood_padding"
+        android:text="发布类型:"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/common_textSize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_type"
+        android:orientation="horizontal"
+        android:padding="@dimen/mood_padding">
+
+        <CheckBox
+            android:id="@+id/cb_topic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="话题" />
+
+        <CheckBox
+            android:id="@+id/cb_article"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="文章" />
+
+        <CheckBox
+            android:id="@+id/cb_academic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="学术" />
+
+    </LinearLayout>
+</RelativeLayout>

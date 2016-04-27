@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/number_our"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/common_shape_bg"
+        android:layout_marginTop="@dimen/top_height"
+        android:gravity="center"
+        android:text="联系客服：4009958591"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/common_textSize"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_advice"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_margin="@dimen/common_dimen"
+        android:background="@drawable/common_shape_input"
+        android:gravity="start"
+        android:hint="请描述您的问题，让我们更好的为您服务！" />
+
+    <Button
+        android:id="@+id/btn_advice"
+        android:layout_width="200dp"
+        android:layout_height="33dp"
+        android:layout_gravity="center"
+        android:background="@drawable/common_shape_bg"
+        android:gravity="center"
+        android:text="提交反馈"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/common_textSize" />
+
+</LinearLayout>

@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.lzl_rjkx.doctor"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        manifestPlaceholders = [
+                GETUI_APP_ID    : "APP_ID",
+                GETUI_APP_KEY   : "APP_KEY",
+                GETUI_APP_SECRET: "APPSECRET",
+                PACKAGE_NAME    : "com.lzl_rjkx.doctor"
+        ]
+    }
+
+    defaultConfig {
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.android.support:support-v4'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'me.imid.swipebacklayout.lib:library:1.0.0'
+    compile 'org.xutils:xutils:3.2.6'
+    compile 'me.leolin:ShortcutBadger:1.1.4@aar'
+    compile files('libs/GetuiExt-2.0.3.jar')
+    compile files('libs/GetuiSDK2.8.1.0.jar')
+    compile files('libs/json_simple-1.1.jar')
+}

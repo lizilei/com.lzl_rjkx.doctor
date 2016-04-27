@@ -1,0 +1,23 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="zero_dimen">0dp</dimen>
+    <dimen name="common_dimen">20dp</dimen>
+    <dimen name="common_textSize">16sp</dimen>
+    <dimen name="top_visit">18sp</dimen>
+    <dimen name="top_textSize">20sp</dimen>
+    <dimen name="top_height">38dp</dimen>
+    <dimen name="category_top">3dp</dimen>
+    <dimen name="category_left">5dp</dimen>
+    <dimen name="category_padding">10dp</dimen>
+    <dimen name="category_size">1dp</dimen>
+
+    <dimen name="gallery_dimen">45dp</dimen>
+
+    <dimen name="tab_dimen">4dp</dimen>
+    <dimen name="mood_padding">5dp</dimen>
+    <dimen name="textSize_small">12sp</dimen>
+    <dimen name="textSize_medial">14sp</dimen>
+    <dimen name="schedule_popupWindow">10dp</dimen>
+
+</resources>

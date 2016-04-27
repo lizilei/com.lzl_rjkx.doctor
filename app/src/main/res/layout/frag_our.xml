@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_dimen"
+        android:lineSpacingExtra="@dimen/schedule_popupWindow"
+        android:text="        “医愿”是中国首家以“了解病情、找对医生”为核心的互联网医疗平台。让病人了解自己的病因、治疗方法、治疗效果及康复训练。在进入医院前确认科室和找到适合的医生，为骨科患者提供国内国外知名专家手术、会诊、住院等中高端服务。"
+        android:textSize="@dimen/common_textSize"
+        android:textStyle="bold" />
+
+</LinearLayout>

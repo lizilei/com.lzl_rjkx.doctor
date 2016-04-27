@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/schedule_popupWindow"
+            android:text="取消" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="短视频"
+            android:textSize="@dimen/common_textSize" />
+
+        <TextView
+            android:id="@+id/tv_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/schedule_popupWindow"
+            android:text="发送"
+            android:textColor="@color/top_bg" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/mood_padding">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标题:"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/common_textSize" />
+
+        <EditText
+            android:id="@+id/video_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_title"
+            android:background="@null"
+            android:hint="请输入标题"
+            android:textSize="@dimen/common_textSize" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/mood_padding"
+        android:text="内容:"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/common_textSize" />
+
+    <EditText
+        android:id="@+id/et_words"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="@dimen/mood_padding"
+        android:layout_marginRight="@dimen/mood_padding"
+        android:layout_marginTop="@dimen/schedule_popupWindow"
+        android:background="@null"
+        android:gravity="start"
+        android:hint="说点什么吧..."
+        android:textSize="@dimen/common_textSize" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <VideoView
+            android:id="@+id/vv_view"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@mipmap/play" />
+    </RelativeLayout>
+
+</LinearLayout>

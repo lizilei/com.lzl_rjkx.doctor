@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_height"
+                android:background="@color/colorWhite">
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:onClick="option"
+                    android:paddingLeft="@dimen/category_padding"
+                    android:src="@mipmap/ic_back" />
+
+                <TextView
+                    android:id="@+id/top_title"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/top_textSize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_video"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <VideoView
+                    android:id="@+id/vv_play"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/albumback" />
+
+                <ImageView
+                    android:id="@+id/iv_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:onClick="option"
+                    android:src="@mipmap/play" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/schedule_popupWindow" />
+
+            <TextView
+                android:id="@+id/tv_pubTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/schedule_popupWindow" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/schedule_popupWindow">
+
+                <LinearLayout
+                    android:id="@+id/ll_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:onClick="option"
+                    android:visibility="gone"
+                    android:paddingRight="@dimen/schedule_popupWindow">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/comment" />
+
+                    <TextView
+                        android:id="@+id/commentCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_collect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/ll_comment"
+                    android:onClick="option"
+                    android:visibility="gone"
+                    android:paddingRight="@dimen/schedule_popupWindow">
+
+                    <ImageView
+                        android:id="@+id/iv_collect"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/collect" />
+
+                    <TextView
+                        android:id="@+id/favCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_praise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/ll_collect"
+                    android:onClick="option"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:paddingRight="@dimen/schedule_popupWindow">
+
+                    <TextView
+                        android:id="@+id/tv_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="+1"
+                        android:textColor="@color/top_bg"
+                        android:textSize="@dimen/common_textSize"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/iv_praise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/praise" />
+
+                    <TextView
+                        android:id="@+id/zanCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <com.lzl_rjkx.doctor.customview.MyListView
+                android:id="@+id/lv_comment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/schedule_popupWindow" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <EditText
+            android:id="@+id/et_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/schedule_popupWindow"
+            android:layout_toLeftOf="@+id/tv_send"
+            android:background="@drawable/comment_bg"
+            android:gravity="start"
+            android:hint="期待你的神评论"
+            android:lineSpacingExtra="@dimen/schedule_popupWindow"
+            android:textSize="@dimen/common_textSize" />
+
+        <TextView
+            android:id="@+id/tv_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:onClick="option"
+            android:padding="@dimen/mood_padding"
+            android:text="发送"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/common_textSize" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="@dimen/mood_padding"
+            android:layout_marginTop="@dimen/mood_padding">
+
+            <com.lzl_rjkx.doctor.customview.AutoScrollViewPager
+                android:id="@+id/head_vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/myLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/schedule_popupWindow"
+                android:gravity="center"
+                android:orientation="horizontal" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="match_parent"
+                android:background="@color/top_bg" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/mood_padding"
+                android:src="@mipmap/collect_show" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/schedule_popupWindow"
+                android:text="热门话题"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/common_textSize" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f2f2f2" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.lzl_rjkx.doctor.customview.MyGridView
+                android:id="@+id/grid_topic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="2" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="暂时没有数据..."
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/common_textSize" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="@dimen/schedule_popupWindow"
+            android:background="@color/colorWhite">
+
+            <View
+                android:layout_width="8dp "
+                android:layout_height="match_parent"
+                android:background="@color/top_bg" />
+
+            <TextView
+                android:id="@+id/tv_today"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/schedule_popupWindow"
+                android:ems="1"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/schedule_popupWindow"
+                android:paddingLeft="@dimen/mood_padding"
+                android:text="今日排期"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/common_textSize" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/tv_today">
+
+                <com.lzl_rjkx.doctor.customview.MyListView
+                    android:id="@+id/lv_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/schedule_popupWindow" />
+
+                <TextView
+                    android:id="@+id/mText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="暂时没有数据..."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/common_textSize" />
+
+            </FrameLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/schedule_popupWindow"
+            android:background="@color/colorWhite">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="match_parent"
+                android:background="@color/top_bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_dimen"
+                android:text="热门学术文章"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/common_textSize" />
+
+            <TextView
+                android:id="@+id/article_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/schedule_popupWindow"
+                android:text="查看全部"
+                android:textSize="@dimen/common_textSize" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f2f2f2" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.lzl_rjkx.doctor.customview.MyListView
+                android:id="@+id/lv_article"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="暂时没有数据..."
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/common_textSize" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/schedule_popupWindow"
+            android:background="@color/colorWhite">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="match_parent"
+                android:background="@color/top_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_dimen"
+                android:text="热门视频推送"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/common_textSize" />
+
+            <TextView
+                android:id="@+id/video_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/schedule_popupWindow"
+                android:text="查看全部"
+                android:textSize="@dimen/common_textSize" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f2f2f2" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.lzl_rjkx.doctor.customview.MyListView
+                android:id="@+id/lv_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="暂时没有数据..."
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/common_textSize" />
+
+        </FrameLayout>
+    </LinearLayout>
+</ScrollView>

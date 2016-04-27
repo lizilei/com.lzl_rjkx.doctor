@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="top_bg">#FC8621</color>
+    <color name="color_bottom1">#FD8524</color>
+    <color name="color_bottom2">#ABABAB</color>
+
+    <color name="calendar_top_bg">#F5A0B3</color>
+    <color name="color_popuWindows">#9EF2E2</color>
+    <color name="popuwindow_color">#B2B6BB</color>
+    <color name="title_bar">#2E3134</color>
+    <color name="title_btn">#4B5356</color>
+    <color name="color_comment">#f2f2f2</color>
+
+    <!--category_tab颜色-->
+    <color name="divider">#ffdddddd</color>
+    <color name="top_category_bar_background">#ffeeeeee</color>
+    <color name="category_tab_text">#ff707070</color>
+    <color name="category_tab_text_dark">#fffafafa</color>
+    <color name="category_tab_highlight_text">#fffafafa</color>
+    <color name="category_tab_highlight_text_dark">#ffd43d3d</color>
+    <color name="category_tab_highlight_bg">#fc8621</color>
+    <color name="category_tab_highlight_dark_bg">#fffafafa</color>
+
+    <!-- 上传图片添加的颜色 -->
+    <color name="none_color">#00000000</color>
+    <color name="plugin_camera_black">#000000</color>
+    <color name="albumback">#E1E0DE</color>
+
+    <color name="bocop_dialog_bg">#77000000</color>
+</resources>
